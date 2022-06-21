@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style></style>
+		<script>
+			function myCalculator(){
+				var fnum;
+				var lnum;
+				let	operando;
+				var result;
+				fnum = Number(document.getElementById("fnum").value);
+				lnum = Number(document.getElementById("lnum").value);
+				operando = document.getElementById("operando").value;
+				if (fnum < 0 || lnum < 0) {
+					window.alert("Error :(");
+					return;
+				}
+				if (lnum == 0 && operando == '/' || operando == '%') {
+					window.alert("It's over 9000!");
+					console.log("It's over 9000!");
+					return;
+				}
+				switch (operando) {
+					case '+':
+						result = fnum + lnum;
+						break;
+					case '-':
+						result = fnum - lnum;
+						break;
+					case '*':
+						result = fnum * lnum;
+						break;
+					case '/':
+						result = fnum / lnum;
+						break;
+					case '%':
+						result = fnum % lnum;
+						break;
+				}
+				window.alert(result);
+				console.log(result);
+				return;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="fnum">
+		<select name="Operando" id="operando">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input type="text" id="lnum">
+		<button onclick="myCalculator();">Try me!</button>
+	</body>
+</html>
