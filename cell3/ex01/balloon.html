@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: -1;
+		}
+		.baloon {
+			background-color: red;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			z-index: 1;
+		}
+	</style>
+	<script>
+		/*window.onload = mouseOverBaloon;
+		function mouseOverBaloon() {
+			var ballonDiv = document.getElementById("baloon");
+			ballonDiv.mouseIsOver = false;
+			ballonDiv.onmouseover = function() {
+				this.mouseIsOver = true;
+			};
+			ballonDiv.onmouseout = function() {
+				this.mouseIsOver = false;
+				deflate();
+			};
+		}*/
+		setInterval(function() {
+			var ballonDiv = document.getElementById("baloon");
+			ballonDiv.mouseIsOver = false;
+			ballonDiv.onmouseover = function() {
+				this.mouseIsOver = true;
+			};
+			ballonDiv.onmouseout = function() {
+				this.mouseIsOver = false;
+			};
+			if (ballonDiv.mouseIsOver == false) {
+				deflate();
+			}
+			console.log(ballonDiv.mouseIsOver);
+		}, 1000);
+		function deflate(){
+			var w = document.getElementById("baloon").clientWidth;
+			var h = document.getElementById("baloon").clientHeight;
+			if (w > 200 && h > 200) {
+				document.getElementById("baloon").style.width = w - 5 + "px";
+				document.getElementById("baloon").style.height = h - 5 + "px";
+			}
+			console.log(w + "x" + h);
+		}
+		function inflate(){
+			var w = document.getElementById("baloon").clientWidth;
+			var h = document.getElementById("baloon").clientHeight;
+			var ballon = document.getElementById("baloon");
+			var ballonStyle = window.getComputedStyle(ballon, "");
+			var bgColor = ballonStyle.getPropertyValue("background-color");
+			if (bgColor == "rgb(255, 0, 0)") {
+				ballon.style.backgroundColor = "green";
+			} else if (bgColor == "rgb(0, 128, 0)") {
+				ballon.style.backgroundColor = "blue";
+			} else {
+				ballon.style.backgroundColor = "red";
+			}
+			if	(w > 420 && h > 420) {
+				document.getElementById("baloon").style.width = 200 + "px";
+				document.getElementById("baloon").style.height = 200 + "px";
+				return;
+			} else {
+				document.getElementById("baloon").style.width = w + 10 + "px";
+				document.getElementById("baloon").style.height = h + 10 + "px";
+			}
+			return;
+		}
+		</script>
+</head>
+<body>
+	<div class="container"><div class="baloon" id="baloon" onclick="inflate()"></div></div>
+</body>
+</html>
