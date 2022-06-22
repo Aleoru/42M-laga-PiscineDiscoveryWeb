@@ -1,0 +1,40 @@
+body {
+	background-color: rgb(5, 5, 34);
+}
+
+p {
+	color: white;
+	text-align: center;	
+	padding: 540px;
+	margin: -20px;
+}
+
+.parallax_top {
+	background-image: url("estrellas.jpg");
+	min-height: 1080px;
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	transform: translateZ(-1px);
+	z-index: -1;
+	margin: -10px;
+}
+
+.parallax_center {
+	min-height: 1080px;
+	background-color:rgb(5, 5, 34);
+	background-size: cover;
+	margin: -10px;
+}
+
+.parallax_bot {
+	background-image: url("montañas_nocturnas.jpg");
+	min-height: 1080px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	transform: translateZ(-1px);
+	z-index: -1;
+	margin: -10px;
+}
