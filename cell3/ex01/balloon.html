@@ -32,7 +32,6 @@
 		}*/
 		setInterval(function() {
 			var ballonDiv = document.getElementById("baloon");
-			ballonDiv.mouseIsOver = false;
 			ballonDiv.onmouseover = function() {
 				this.mouseIsOver = true;
 			};
@@ -43,7 +42,7 @@
 				deflate();
 			}
 			console.log(ballonDiv.mouseIsOver);
-		}, 1000);
+		}, 100);
 		function deflate(){
 			var w = document.getElementById("baloon").clientWidth;
 			var h = document.getElementById("baloon").clientHeight;
