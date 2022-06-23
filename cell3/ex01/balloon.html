@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<style>
 		.container {
+			height: 100vh;
 			display: flex;
+			flex-direction: column-reverse;
 			justify-content: center;
-			align-items: center;
 			z-index: -1;
 		}
 		.baloon {
@@ -14,6 +15,7 @@
 			width: 200px;
 			height: 200px;
 			border-radius: 50%;
+			margin: 0 auto 10px;
 			z-index: 1;
 		}
 	</style>
@@ -29,16 +31,26 @@
 			if (ballonDiv.mouseIsOver == false) {
 				deflate();
 			}
-			console.log(ballonDiv.mouseIsOver);
-		}, 100);
+		}, 250);		
 		function deflate(){
 			var w = document.getElementById("baloon").clientWidth;
 			var h = document.getElementById("baloon").clientHeight;
+			var ballon = document.getElementById("baloon");
+			var ballonStyle = window.getComputedStyle(ballon, "");
+			var bgColor = ballonStyle.getPropertyValue("background-color");
 			if (w > 200 && h > 200) {
 				document.getElementById("baloon").style.width = w - 5 + "px";
 				document.getElementById("baloon").style.height = h - 5 + "px";
+				if (bgColor == "rgb(0, 0, 255)") {
+					ballon.style.backgroundColor = "green";
+				} else if (bgColor == "rgb(0, 128, 0)") {
+					ballon.style.backgroundColor = "red";
+				} else {
+					console.log(bgColor);
+					ballon.style.backgroundColor = "blue";
+				}
 			}
-			console.log(w + "x" + h);
+			return;
 		}
 		function inflate(){
 			var w = document.getElementById("baloon").clientWidth;
